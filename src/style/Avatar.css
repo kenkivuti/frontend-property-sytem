@@ -1,0 +1,14 @@
+.avatar-profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+} 
+
+.avatar-image {
+    width: 40px; 
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover; 
+    margin-right: 10px;
+}

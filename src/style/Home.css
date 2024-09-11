@@ -1,0 +1,34 @@
+.homepage{
+    background-image: url('../assets/images/home_page_bgnd.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    /* padding-left: 15pxk;   */
+    object-fit: cover;
+    /* margin-left: 5px;  */
+    /* background-color: aqua; */
+    position: relative;
+    
+}
+.main-items{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    text-align: center;
+}
+h1{
+    color: rgb(16, 26, 85);
+    text-transform: uppercase;
+    font-size: 90px;
+    text-align: center;
+    margin-top:140px;
+}
+.home-button{
+    width: 150px;
+    height: 50px;
+    background-color: rgb(93, 148, 194);
+    border-radius: 10px;
+    
+}

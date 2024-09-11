@@ -1,0 +1,16 @@
+.mynav {
+  /* position: relative; */
+  height: 80px;
+  /* margin-top: 10px; */
+}
+
+.mylogo {
+  position: absolute;
+  height: 150px;
+}
+
+.nav-items{
+   margin-left: 40%;
+   display: flex;
+   gap: 80px;
+}
