@@ -1,0 +1,17 @@
+.chart-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 70%;
+    /* height: 100vh; */
+    margin-top: 230px;
+    margin-left: 330px;
+    
+}
+
+.linegraph , .bargraph{
+    flex: 10;
+    margin: 10px;
+    /* height: 500px; */
+    
+}

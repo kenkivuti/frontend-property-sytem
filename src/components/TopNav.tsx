@@ -6,7 +6,7 @@ export default function TopNav(){
         <Navbar style={{backgroundColor:'#088395'}} variant="light" expand="lg">
         <Container fluid>
           {/* Navbar Brand */}
-          <Navbar.Brand href="#">Brand</Navbar.Brand>
+          <Navbar.Brand href="#">Mackays</Navbar.Brand>
           
           {/* Toggler for Mobile View */}
           <Navbar.Toggle aria-controls="navbar-nav" />

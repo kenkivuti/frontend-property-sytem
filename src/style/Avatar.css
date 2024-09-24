@@ -12,3 +12,8 @@
     object-fit: cover; 
     margin-right: 10px;
 }
+
+.avatar-profile h3{
+    font-size: medium;
+    margin-top: 6px;
+}
