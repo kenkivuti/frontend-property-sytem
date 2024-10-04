@@ -1,42 +1,45 @@
+import React from "react";
 import Card from "react-bootstrap/Card";
-import { BsCurrencyDollar, BsCashStack, BsClipboard2Fill, BsTicketPerforated } from 'react-icons/bs';
+import { useNavigate } from 'react-router-dom';
 
-function CardComponent() {
-  // Array of card data, each with a unique header and icon
-  const CardData = [
-    {  Icon: BsCashStack, content: "House Bills", variant: "Primary" },
-    {  Icon: BsCurrencyDollar, content: "Payments", variant: "Secondary" },
-    {  Icon: BsClipboard2Fill, content: "Policies", variant: "Danger" },
-    {  Icon: BsTicketPerforated, content: "Ticket", variant: "Warning" }
-  ];
+interface CardProps {
+  content: string;
+  variant: string;
+  Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>; // For passing icons like BsCurrencyDollar
+  onClick?: () => void;
+  redirectTo?: string; // Optional redirect URL
+}
+
+const CardComponent: React.FC<CardProps> = ({
+  content,
+  variant,
+  Icon,
+  onClick,
+  redirectTo
+}) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    if (onClick) onClick();
+    if (redirectTo) navigate(redirectTo); // Handle navigation if redirectTo is provided
+  };
 
   return (
     <div className="card-info">
-      {CardData.map((card, index) => (
-        <Card
-          bg={card.variant.toLowerCase()}
-          key={index}
-          text={card.variant.toLowerCase() === "light" ? "dark" : "white"}
-          style={{ width: "18rem" }}
-          className="mb-2 card-d"
-        >
-          {/* Card Header */}
-          {/* <Card.Header>
-            {card.Header}
-          </Card.Header> */}
-
-          {/* Card Body */}
-          <Card.Body>
-          <card.Icon className="ms-2 card-icon" /> 
-            <Card.Title className="card-title mt-4">{card.content}</Card.Title>
-            {/* <Card.Text>
-              {card.content} 
-            </Card.Text> */}
-          </Card.Body>
-        </Card>
-      ))}
+      <Card
+        onClick={handleClick}
+        bg={variant.toLowerCase()} // Using the variant prop
+        text={variant.toLowerCase() === "light" ? "dark" : "white"}
+        style={{ width: "18rem" }}
+        className="mb-2 card-d"
+      >
+        <Card.Body>
+          <Icon className="ms-2 card-icon" /> {/* Render the passed Icon */}
+          <Card.Title className="card-title mt-4">{content}</Card.Title>
+        </Card.Body>
+      </Card>
     </div>
   );
-}
+};
 
 export default CardComponent;
