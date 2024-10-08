@@ -5,6 +5,8 @@ import FormInput from './FormInput';
 interface FormValues {
   email: string;
   password: string;
+  tenantName: string;
+  tenantPhone: string;
 }
 
 interface FormField {

@@ -1,0 +1,27 @@
+.main2-container {
+    position: fixed;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 15px;
+      
+}
+  .card-icon{
+    font-size: 40px;
+  }
+  .menu-icon {
+    display: none;
+  }
+
+  .card-title{
+    font-size: 20px;
+  }
+
+
+  .registertenant-button{
+    background-color: #363ed6;
+    margin-right: 45%;
+    float: left;
+    
+  }
