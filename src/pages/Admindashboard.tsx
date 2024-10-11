@@ -2,6 +2,7 @@ import { useState } from "react";
 import TopNav from "../components/TopNav";
 import SideNav from "../components/SideNav";
 import Form from "../components/Form"; // Your Form component
+import Modal from "../components/modal"; // Modal component
 import "../style/Dashboard.css";
 import "../style/admindashboard.css";
 import {
@@ -21,8 +22,6 @@ export default function Admindashboard() {
     setOpenSidebarToggle(!openSidebarToggle);
   };
 
-  
-
   const handleRegisterTenant = (formData: any) => {
     // Handle form data submission
     console.log("Form submitted: ", formData);
@@ -33,49 +32,32 @@ export default function Admindashboard() {
       <TopNav />
       <SideNav openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar} />
       <main className="main2-container">
-        <CardComponent
-          content="Houses"
-          variant="primary"
-          Icon={BsCurrencyDollar}
-        />
-        <CardComponent
-          content="Tenants"
-          variant="Secondary"
-          Icon={BsCashStack}
-        />
-        <CardComponent
-          content="ApartmentBill"
-          variant="Danger"
-          Icon={BsClipboard2Fill}
-        />
-        <CardComponent
-          content="Payments"
-          variant="warning"
-          Icon={BsTicketPerforated}
-        />
+        <CardComponent content="Houses" variant="primary" Icon={BsCurrencyDollar} />
+        <CardComponent content="Tenants" variant="Secondary" Icon={BsCashStack} />
+        <CardComponent content="ApartmentBill" variant="Danger" Icon={BsClipboard2Fill} />
+        <CardComponent content="Payments" variant="warning" Icon={BsTicketPerforated} />
 
         <Button
           children="Register Tenant"
           className="registertenant-button mt-5"
-          onClick={() => setShowForm(!showForm)} // Toggle the form visibility
+          onClick={() => setShowForm(true)} // Open the modal with the form
         />
 
-        {showForm && (
-          <div className="form-container mt-5">
-            <Form
-              fields={[
-                { name: "email", type: "email", label: "Tenant Email", placeholder: "Enter tenant email", required: true },
-                { name: "password", type: "password", label: "Password", placeholder: "Enter password", required: true },
-                { name: "tenantName", type: "text", label: "name", placeholder: "fullName", required: true },
-                { name: "tenantPhone", type: "text", label: "number", placeholder: "0712345678", required: true }
-            
-              ]}
-              onSubmit={handleRegisterTenant}
-              submitText="Register Tenant"
-              className="tenant-registration-form"
-            />
-          </div>
-        )}
+        {/* Modal to display the form */}
+        <Modal show={showForm} onClose={() => setShowForm(false)}>
+          {/* <h1>register tenant</h1> */}
+          <Form
+            fields={[
+              { name: "email", type: "email", label: "Tenant Email", placeholder: "Enter tenant email", required: true },
+              { name: "password", type: "password", label: "Password", placeholder: "Enter password", required: true },
+              { name: "tenantName", type: "text", label: "Full Name", placeholder: "Enter full name", required: true },
+              { name: "tenantPhone", type: "text", label: "Phone Number", placeholder: "0712345678", required: true },
+            ]}
+            onSubmit={handleRegisterTenant}
+            submitText="Register Tenant"
+            className="tenant-registration-form"
+          />
+        </Modal>
       </main>
     </>
   );
